@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieList from '../../components/MovieList';
-import Modal from '../../components/Modal';
+import Modal '../../components/Modal';
 
 const Home = () => {
   return (
