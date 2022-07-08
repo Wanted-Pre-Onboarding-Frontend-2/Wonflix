@@ -1,7 +1,14 @@
 import React from 'react';
+import MovieList from '../../components/MovieList';
+import Modal from '../../components/Modal';
 
 const Home = () => {
-  return <div>홈 페이지</div>;
+  return (
+    <>
+      <MovieList />
+      <Modal />
+    </>
+  );
 };
 
 export default Home;
