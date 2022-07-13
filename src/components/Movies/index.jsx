@@ -9,17 +9,17 @@ import { useObserver } from '../../hooks/useObserver';
 import { useInfiniteData } from '../../hooks/useInfiniteData';
 
 const Movies = () => {
-  const { pageNum, setPageNum, loading, end, error, list, getData } = useInfiniteData();
+  const { pageNum, setPageNum, isLoading , isEnd, error, list, getData } = useInfiniteData();
   const [movies, setMovies] = useRecoilState(moviesData);
   const [lastElement, setLastElement] = useState(null);
   const [values, setValues] = useRecoilState(sortData);
   const observer = useObserver(setPageNum);
 
   useEffect(() => {
-    if (!end) {
+    if (!isEnd) {
       getData(values);
     }
-  }, [pageNum, getData, list, setMovies, end, values]);
+  }, [pageNum, getData, list, setMovies, isEnd, values]);
 
   useEffect(() => {
     const currentElement = lastElement;
@@ -43,7 +43,7 @@ const Movies = () => {
         <div className='movies'>
           {movies?.length > 0 &&
             movies?.map((movie, i) => {
-              return i === movies?.length - 1 && !loading && !end ? (
+              return i === movies?.length - 1 && !isLoading && !isEnd ? (
                 <div key={movie.imdb_code} ref={setLastElement}>
                   <Card movie={movie} atom={moviesData} role='presentation' />
                 </div>
@@ -52,8 +52,8 @@ const Movies = () => {
               );
             })}
         </div>
-        {loading && <p>loading...</p>}
-        {end && <p>여기가 페이지 끝입니다!</p>}
+        {isLoading && <p>loading...</p>}
+        {isEnd && <p>여기가 페이지 끝입니다!</p>}
       </div>
     </>
   );

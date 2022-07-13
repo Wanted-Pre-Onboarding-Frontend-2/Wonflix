@@ -42,7 +42,7 @@ const Header = (props) => {
   };
 
   return (
-    <header className='header'>
+    <header className={hide ? 'hide header' : 'header'}>
       <h1 className='logo'>
         <span onClick={goHome}>Wonflix</span>
       </h1>
