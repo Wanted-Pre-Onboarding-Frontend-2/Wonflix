@@ -4,8 +4,6 @@
 
 영화 검색 기능 서비스 팀프로젝트 입니다.
 
-# 🚀 [배포 링크](https://wonfilx.herokuapp.com/)
-
 # 실행방법
 ```
 - mac일 경우
